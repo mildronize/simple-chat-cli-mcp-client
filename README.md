@@ -1,4 +1,4 @@
-# Simple Prompt MCP Client
+# Simple Chat Cli MCP Client
 
 A lightweight CLI tool that connects to Model Context Protocol (MCP) servers and lets you interact using natural language prompts — powered by OpenAI.
 
