@@ -2,6 +2,70 @@
 
 A lightweight CLI tool that connects to Model Context Protocol (MCP) servers and lets you interact using natural language prompts — powered by OpenAI.
 
+## 🧠 What is MCP?
+
+**Model Context Protocol (MCP)** is a protocol that allows large language models (LLMs) to interact with external tools — such as file systems, APIs, databases, or custom business logic — by treating them as callable functions (called “tools”) at runtime.
+
+### 🌐 Key Concept
+
+Think of MCP as the **bridge between your LLM and your application's capabilities.**
+
+Instead of hard-coding logic or manually calling APIs, you define **tools** on an **MCP server**, and your **MCP client** dynamically connects, fetches those tools, and forwards them to the LLM — allowing it to decide **when and how** to call them.
+
+## 🔄 Typical Flow of an MCP Client
+
+Here’s how a basic LLM + MCP interaction looks:
+
+1. **Start the Session**:
+
+   * Your backend (MCP client) connects to an MCP server.
+   * The MCP server responds with a list of available tools (name, description, input schema).
+
+2. **Receive User Prompt**:
+
+   * The user types a natural-language prompt.
+   * The prompt is sent to the LLM **along with the available tools**.
+
+3. **Tool Calling**:
+
+   * If needed, the LLM responds with a **tool call** (e.g., `read_file`, `search_docs`).
+   * Your app (MCP client) invokes the tool on the MCP server.
+
+4. **Post-call Response**:
+
+   * The tool result is returned to the LLM.
+   * The LLM integrates the result and generates a final response to the user.
+
+## ⚙️ Why MCP?
+
+MCP makes it easy to:
+
+* Extend LLMs with real capabilities (e.g., reading files, querying APIs)
+* Keep tools modular, reusable, and secure
+* Integrate into existing backend logic without redesigning your LLM pipeline
+* Swap or reuse tools across agents and clients
+
+## 🔧 Requirements
+
+To work with MCP:
+
+* Use an **LLM that supports function/tool calling** (e.g., OpenAI, Anthropic, Claude, etc.)
+* Implement or connect to an **MCP server** (e.g., [server-filesystem](https://github.com/modelcontextprotocol/servers))
+* Build an **MCP client** that handles connection, tool listing, tool execution, and result forwarding
+
+## ✅ Real Use Case Example
+
+If the user says:
+
+> “Read me the latest log file”
+
+The LLM:
+
+* Receives tool list: `read_file`, `list_directory`, etc.
+* Decides to call `read_file` with argument `path: "logs/latest.log"`
+* The MCP client executes that tool on the server and sends the content back
+* The LLM then summarizes or explains it in natural language
+
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
