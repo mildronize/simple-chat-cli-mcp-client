@@ -10,6 +10,7 @@ import readline from "readline/promises";
 dotenv.config();
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
 if (!OPENAI_API_KEY) {
   throw new Error("OPENAI_API_KEY is not set");
 }
@@ -107,7 +108,7 @@ class MCPClient {
     ];
 
     const response = await this.llm.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: OPENAI_MODEL,
       messages,
       tools: this.tools,
       tool_choice: "auto",

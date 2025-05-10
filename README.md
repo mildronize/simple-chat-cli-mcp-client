@@ -160,7 +160,7 @@ The CLI client:
 * Loads server config from `mcp.json`
 * Connects to a selected MCP server
 * Retrieves and registers tools
-* Uses OpenAI’s GPT-4o to interpret your prompt and choose which tools to call
+* Uses OpenAI’s GPT-4o-mini to interpret your prompt and choose which tools to call
 * Executes the tools and returns the results
 * Supports STDIO or SSE-based servers
 
