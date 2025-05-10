@@ -1,0 +1,17 @@
+{
+  "name": "simple-chat-cli-mcp-client",
+  "module": "src/main.ts",
+  "type": "module",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.1",
+    "dotenv": "^16.5.0",
+    "openai": "^4.98.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.4"
+  }
+}

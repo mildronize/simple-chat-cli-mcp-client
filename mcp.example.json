@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "src"
+      ]
+    },
+    "remote_sse_server": {
+      "url": "http://localhost:3002/sse"
+    }
+  }
+}
